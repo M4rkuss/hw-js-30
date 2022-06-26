@@ -1,0 +1,88 @@
+html, * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+}
+
+.main-wrap {
+    height: 100vh;
+    background: #fbf3e9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.registration-block {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.registration-block h2 {
+    margin-bottom: 20px;
+}
+
+.registration-block form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.registration-block label:not(:first-child) {
+    margin-top: 10px;
+}
+
+.registration-block input, .registration-block button {
+    padding: 8px;
+    width: 400px;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+}
+
+.registration-block input {
+    margin-bottom: 15px;
+}
+
+.registration-block button {
+    margin-top: 10px;
+    transition: .4s ease;
+}
+
+.registration-block button:hover {
+    cursor: pointer;
+    background: #ececec;
+}
+
+.above-input {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.above-input span {
+    color: #ed5565;
+    opacity: 0;
+    transition: .3s ease;
+}
+
+.above-input span.active {
+    animation: invalidValue .3s ease;
+    opacity: 1;
+}
+
+@keyframes invalidValue {
+    0% {
+        transform: rotate(4deg);
+    }
+    50% {
+        transform: rotate(-4deg);
+    }
+    100% {
+        transform: rotate(4deg);
+    }
+}

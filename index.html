@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Registration</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="main-wrap">
+    <div class="registration-block">
+        <h2>Registration</h2>
+        <form method="get">
+            <div class="above-input">
+                <label>Email:</label>
+                <span class="spanInvalid">Wrong email address</span>
+            </div>
+            <input id="emailInput" type="email" placeholder="Enter your E-mail" required>
+            <div class="above-input">
+                <label>Password:</label>
+                <span class="spanInvalid">Wrong password</span>
+            </div>
+            <input id="passwordInput" type="password" placeholder="Enter your password" required>
+            <div class="above-input">
+                <label>Repeat:</label>
+                <span class="spanInvalid">Password must match</span>
+            </div>
+            <input id="passwordInput2" type="password" placeholder="Repeat your password" required>
+            <button type="submit" id="signUpBtn">Sign Up</button>
+        </form>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
