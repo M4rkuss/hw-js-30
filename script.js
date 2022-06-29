@@ -1,6 +1,5 @@
 let pageRegPath = document.location.pathname.slice(10);
-console.log(pageRegPath);
-if (pageRegPath === "index.html" || pageRegPath === "") {
+if (pageRegPath === "index.html" || pageRegPath === "" || pageRegPath === " ") {
   document.getElementById('signUpBtn').addEventListener('click', function (e) {
     let emailValue = document.getElementById('emailInput').value;
     let passwordValue = document.getElementById('passwordInput').value;
