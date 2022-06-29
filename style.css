@@ -18,6 +18,7 @@ html, * {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    width: 400px;
 }
 
 .registration-block h2 {
@@ -29,15 +30,16 @@ html, * {
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
+    width: 100%;
 }
 
 .registration-block label:not(:first-child) {
     margin-top: 10px;
 }
 
-.registration-block input, .registration-block button {
+.registration-block input, button {
     padding: 8px;
-    width: 400px;
+    width: 100%;
     border-radius: 5px;
     border: none;
     outline: none;
@@ -47,12 +49,12 @@ html, * {
     margin-bottom: 15px;
 }
 
-.registration-block button {
+button {
     margin-top: 10px;
     transition: .4s ease;
 }
 
-.registration-block button:hover {
+button:hover {
     cursor: pointer;
     background: #ececec;
 }
@@ -64,13 +66,13 @@ html, * {
     margin-bottom: 10px;
 }
 
-.above-input span {
+.spanInvalid {
     color: #ed5565;
     opacity: 0;
     transition: .3s ease;
 }
 
-.above-input span.active {
+.spanInvalid.active {
     animation: invalidValue .3s ease;
     opacity: 1;
 }
@@ -84,5 +86,108 @@ html, * {
     }
     100% {
         transform: rotate(4deg);
+    }
+}
+
+
+/*USER INFO PAGE STYLES*/
+.user-info-block {
+    width: 45%;
+}
+
+.above-reg-block {
+    border-bottom: 1px solid #323232;
+    width: 100%;
+    margin-bottom: 20px;
+    padding: 10px;
+}
+
+.above-reg-block p {
+    text-align: right;
+}
+
+.user-info-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.user-info-form form {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.user-info-form .input-block {
+    width: 49%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 15px;
+}
+
+.user-info-form .input-block label {
+    display: flex;
+    justify-content: space-between;
+}
+
+.user-info-form .input-block input, .user-info-form .input-block select {
+    padding: 8px;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+}
+
+.user-info-form button {
+    margin-top: 25px;
+    width: 100%;
+}
+
+.popup-success {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    width: 450px;
+    height: 200px;
+    background: #fff;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 99;
+    box-shadow: 0 1px 15px 1px rgb(57 49 74 / 35%);
+    padding: 40px;
+    border-radius: 7px;
+    transition: .4s ease;
+    animation: popupFade .9s ease;
+}
+
+.popup-success h1 {
+    color: #3ac13a;
+}
+
+@keyframes popupFade {
+    0% {
+        display: none;
+        margin-top: -40px;
+        opacity: 0;
+    }
+    100% {
+        display: flex;
+        margin-top: 0;
+        opacity: 1;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .user-info-form .input-block {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .user-info-block, .registration-block {
+        width: 80%;
     }
 }
