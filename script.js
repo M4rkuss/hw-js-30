@@ -1,6 +1,6 @@
 let pageRegPath = document.location.pathname.slice(10);
 console.log(pageRegPath);
-if (pageRegPath === "index.html") {
+if (pageRegPath === "index.html" || pageRegPath === "") {
   document.getElementById('signUpBtn').addEventListener('click', function (e) {
     let emailValue = document.getElementById('emailInput').value;
     let passwordValue = document.getElementById('passwordInput').value;
@@ -46,7 +46,7 @@ if (pageRegPath === "index.html") {
   })
 }
 
-if (pageRegPath === "user-info.html") {
+if (pageRegPath === "user-info.html" || pageRegPath === "user-info") {
   document.getElementById('userEmail').innerText = localStorage.getItem("emailValue");
   document.getElementById('saveBtn').addEventListener('click', function (e) {
     let firstName = document.getElementById('firstNameInput').value;
