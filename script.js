@@ -1,4 +1,5 @@
 let pageRegPath = document.location.pathname.slice(10);
+console.log(pageRegPath);
 if (pageRegPath === "index.html") {
   document.getElementById('signUpBtn').addEventListener('click', function (e) {
     let emailValue = document.getElementById('emailInput').value;
