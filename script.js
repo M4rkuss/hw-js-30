@@ -1,3 +1,10 @@
+function getCookie(name) {
+  let matches = document.cookie.match(new RegExp(
+    "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
+  ));
+  return matches ? decodeURIComponent(matches[1]) : undefined;
+}
+
 let pageRegPath = document.location.pathname.slice(10);
 if (pageRegPath === "index.html" || pageRegPath === "" || pageRegPath === " ") {
   document.getElementById('signUpBtn').addEventListener('click', function (e) {
@@ -7,8 +14,7 @@ if (pageRegPath === "index.html" || pageRegPath === "" || pageRegPath === " ") {
     const regEmail = /^([A-Z][A-Za-z_]{4,7}-[A-Za-z0-9_\-\.]+@[A-Za-z]+\.[A-Za-z]{2,4})$/;
     const regPass = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{6,}/;
 
-    localStorage.setItem("emailValue", emailValue);
-
+    document.cookie = `user=${emailValue}; max-age=3600`;
 
     e.preventDefault();
 
@@ -40,13 +46,22 @@ if (pageRegPath === "index.html" || pageRegPath === "" || pageRegPath === " ") {
     }
 
     if (emailValue.match(regEmail) && passwordValue.match(regPass) && (passwordValue === passwordValue2)) {
-      window.open('/hw-js-30/user-info.html', '_self')
+      window.open('/hw-js-30/user-info.html', '_self');
     }
   })
 }
 
 if (pageRegPath === "user-info.html" || pageRegPath === "user-info") {
-  document.getElementById('userEmail').innerText = localStorage.getItem("emailValue");
+  if (!getCookie('user')) {
+    document.querySelector('.above-reg-block').remove();
+  } else {
+    document.getElementById('userEmail').innerText = getCookie('user');
+  }
+
+  document.querySelector('.above-reg-block a').addEventListener('click', function () {
+    document.cookie = `user=${getCookie('user')}; max-age=-1`;
+  })
+
   document.getElementById('saveBtn').addEventListener('click', function (e) {
     let firstName = document.getElementById('firstNameInput').value;
     let lastName = document.getElementById('lastNameInput').value;
@@ -102,6 +117,5 @@ if (pageRegPath === "user-info.html" || pageRegPath === "user-info") {
         document.getElementById('popUp').style.display = 'none';
       }, 2500)
     }
-
   })
 }
